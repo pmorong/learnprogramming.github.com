@@ -12,8 +12,26 @@
 	<!-- Linked Javascript -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/easteregg.js"></script>
+	<script type="text/javascript">
+    var egg = new Egg();
+    egg.AddCode("r,e,d,d,i,t", function() {
+      jQuery('#egggif').fadeIn(500, function() {
+        window.setTimeout(function() { jQuery('#egggif').hide(); }, 5000);
+      });
+    }, "konami-code");
+    egg.AddHook(function(){
+      console.log("Hook called for: " + this.activeEgg.keys);
+      console.log(this.activeEgg.metadata);
+    });
+    egg.Listen();
+  </script>
+  <style type="text/css">
+    #egggif {position: absolute; top: 25%; left: 25%; display: none; }
+  </style>
 </head>
 <body>
+<a href="http://www.reddit.com/r/learnprogramming/"><img id="egggif" src="images/lpmc-logo.png" /></a>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 	    	<div class="container">
@@ -48,8 +66,8 @@
 				<h2>Frequently Asked Questions</h2><br>
 				<div class="accordion" id="accordion2">
 				<div class="accordion-group">
-				  <div class="accordion-heading">
 				    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">What do I do if I'm new?</a>
+				  <div class="accordion-heading">
 				  </div>
 				  <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
 				    <div class="accordion-inner">
